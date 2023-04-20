@@ -23,6 +23,11 @@ const postSchema = new Schema({
     {
       type: String,
     },
+    postAuthor: {
+    type: String,
+    required: true,
+    trim: true,
+    },
 });
 
 const Post = model('Post', postSchema);
