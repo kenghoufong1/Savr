@@ -11,7 +11,6 @@ const typeDefs = gql`
     description: String
     postAuthor: ID!
   }
-
   type User {
     _id: ID
     username: String
@@ -23,7 +22,6 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
-
   type Query {
     users: [User]
     user(username: String!): User
@@ -31,7 +29,6 @@ const typeDefs = gql`
     post(postId: ID!): Post
     me: User
   }
-
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
