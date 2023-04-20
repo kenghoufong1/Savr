@@ -1,22 +1,65 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_TECH = gql`
-  query tech {
-    tech {
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
       _id
-      name
+      username
+      email
+      thoughts {
+        _id
+        thoughtText
+        createdAt
+      }
     }
   }
 `;
 
-export const QUERY_MATCHUPS = gql`
-  query matchups($_id: String) {
-    matchups(_id: $_id) {
+export const QUERY_POSTS = gql`
+  query getPosts {
+    posts {
       _id
-      tech1
-      tech2
-      tech1_votes
-      tech2_votes
+      location
+      product
+      regPrice
+      salePrice
+      image
+      description
+      postAuthor
+    }
+  }
+`;
+
+export const QUERY_SINGLE_POST = gql`
+  query getSinglePost($postId: ID!) {
+    post(postId: $postId) {
+      _id
+      location
+      product
+      regPrice
+      salePrice
+      image
+      description
+      postAuthor
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      username
+      email
+      posts {
+        _id
+        location
+        product
+        regPrice
+        salePrice
+        image
+        description
+      }
     }
   }
 `;

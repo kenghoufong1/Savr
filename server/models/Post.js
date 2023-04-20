@@ -24,9 +24,9 @@ const postSchema = new Schema({
       type: String,
     },
     postAuthor: {
-    type: String,
-    required: true,
-    trim: true,
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
     },
 });
 

@@ -9,7 +9,7 @@ const typeDefs = gql`
     salePrice: Int!
     image: String
     description: String
-    postAuthor: String!
+    postAuthor: ID!
   }
 
   type User {
