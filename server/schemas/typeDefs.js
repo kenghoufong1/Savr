@@ -5,8 +5,8 @@ const typeDefs = gql`
     _id: ID!
     location: String!
     product: String!
-    regPrice: Int
-    salePrice: Int!
+    regPrice: Float
+    salePrice: Float!
     image: String
     description: String
     postAuthor: ID!
@@ -16,7 +16,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    posts: [Post]!
+    posts: [Post]
   }
   type Auth {
     token: ID!

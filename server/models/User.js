@@ -17,7 +17,7 @@ const userSchema = new Schema({
     unique: true,
     match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   },
-  Posts: [
+  posts: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Post',
@@ -32,11 +32,6 @@ userSchema.pre('save', async function (next) {
 
   next();
 });
-
-userSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
-};
-
 
 // hash user password
 userSchema.pre('save', async function (next) {
