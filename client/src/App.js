@@ -10,6 +10,7 @@ import SharedDeals from './pages/SharedDeals';
 
 import Header from './components/Header';
 
+
 const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),
@@ -54,6 +55,7 @@ function App() {
     </Router>
   </ApolloProvider>
 );
+
 }
 
 export default App;
