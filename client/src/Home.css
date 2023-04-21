@@ -1,5 +1,5 @@
 body {
-    background-image: url('file:///C:/Users/kengh/OneDrive/Desktop/Savr/client/public/freshg.webp');
+    background-image: url('./freshg.webp');
     background-size: cover;
     background-position: center;
     height: 100vh;
