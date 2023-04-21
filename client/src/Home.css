@@ -1,0 +1,17 @@
+body {
+    background-image: url('./freshg.webp');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.home-container{
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    margin-top: 20%;
+}
+
+#welcomemsg{
+    font-size: 100px;
+}
