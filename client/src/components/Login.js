@@ -32,7 +32,7 @@ function LoginForm() {
                 onChange={handleChange}
                 />
             </Form.Group>
-           <div className='d-grid gap-2'>
+            <div className='d-grid gap-2'>
             <Button variant="primary" type="submit">
                 Login
             </Button>
