@@ -5,6 +5,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login'
 import Home from './pages/Home';
 import Profile from './pages/Profile'
+import SharedDeals from './pages/SharedDeals'
 import Header from './components/Header';
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path='/profile' element={<Profile />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/shareddeal' element={<SharedDeals />} />
         </Routes>
       </Router>
     </ApolloProvider>
