@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import { CreateDeal, Header, Login, Profile, SavedDeals, SharedDeals, Signup } from './components';
+import Signup from './pages/Signup';
+import Login from './pages/Login'
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -12,7 +13,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        
+        <Routes>
+          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/login'  element={<Login/>}/>
+        </Routes>
       </Router>
     </ApolloProvider>
   );
