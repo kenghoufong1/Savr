@@ -84,6 +84,28 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-}};
+    savePost: async (parent, { postId }, context) => {
+      if (context.user) {
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { savedPosts: post._id } }
+        )
+        return user;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    unsavePost: async (parent, { postId }, context) => {
+      if (context.user) {
+
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $pull: { savedPosts: post._id } }
+      );
+
+      return post;
+    }
+    throw new AuthenticationError('You need to be logged in!');
+  }}
+}
 
 module.exports = resolvers;
