@@ -1,8 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink, } from '@apollo/client';
+
+import Home from './pages/Home';
 import Signup from './pages/Signup';
-import Login from './pages/Login'
+import Login from './pages/Login';
+import Profile from './pages/Profile';
+import SharedDeals from './pages/SharedDeals';
+
+import Header from './components/Header';
+
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -12,14 +19,43 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <Routes>
-          <Route path='/signup' element={<Signup/>}/>
-          <Route path='/login'  element={<Login/>}/>
-        </Routes>
-      </Router>
-    </ApolloProvider>
-  );
+    <Router>
+      <div className="flex-column justify-flex-start min-100-vh">
+        <Header />
+        <div className="container">
+          <Routes>
+            <Route 
+              path="/"
+              element={<Home />}
+            />
+            <Route 
+              path="/login" 
+              element={<Login />}
+            />
+            <Route 
+              path="/signup" 
+              element={<Signup />}
+            />
+            <Route 
+              path="/me" 
+              element={<Profile />}
+            />
+            {/* <Route 
+              path="/profiles/:username" 
+              element={<Profile />}
+            /> */}
+            <Route 
+              path="/deals" 
+              element={<SharedDeals />}
+            />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </Router>
+  </ApolloProvider>
+);
+
 }
 
 export default App;
