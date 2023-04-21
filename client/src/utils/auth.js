@@ -37,5 +37,6 @@ class AuthService {
     window.location.reload();
   }
 }
+const authService = new AuthService(); // create an instance of AuthService and assign it to a variable
 
-export default new AuthService();
+export default authService; // export the instance with a name

@@ -1,6 +1,9 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
+import { Form, Button,} from 'react-bootstrap';
+
+import React, { useState } from 'react';
+import { createUser } from '../utils/API';
+import Auth from '../utils/auth';
+
 
 function SignupForm() {
     const [formData, setFormData] = useState({ username: "", email: "", password: "" })
@@ -8,10 +11,36 @@ function SignupForm() {
     const handleChange = ({ target }) => {
         setFormData({ ...formData, [target.name]: target.value })
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
 
         console.log(formData)
+            // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const response = await createUser(formData);
+
+      if (!response.ok) {
+        throw new Error('something went wrong!');
+      }
+
+      const { token, user } = await response.json();
+      console.log(user);
+      Auth.login(token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setFormData({
+      username: '',
+      email: '',
+      password: '',
+    });
     }
     return (
         <Form onSubmit={handleSubmit} noValidate>
