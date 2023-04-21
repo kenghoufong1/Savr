@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile'
 import Header from './components/Header';
 
+
 const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),
