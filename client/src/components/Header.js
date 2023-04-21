@@ -11,7 +11,8 @@ function Header() {
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="login">Login</Nav.Link>
           <Nav.Link href="signup">Signup</Nav.Link>
-          <Nav.Link href="dashboard">Dashboard</Nav.Link>
+          <Nav.Link href="shareddeal">Deals</Nav.Link>
+          <Nav.Link href="profile">Profile</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
