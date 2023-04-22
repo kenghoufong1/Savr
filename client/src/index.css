@@ -21,3 +21,8 @@
 .ml-auto .nav-link {
     margin-right: 25px;
 }
+
+.card {
+    width: 25%;
+    margin: 2%;
+  }
