@@ -23,6 +23,12 @@ const userSchema = new Schema({
       ref: 'Post',
     },
   ],
+  savedPosts: [
+    {
+      type: Schema.ObjectId,
+      ref: 'Post',
+    }
+  ]
 });
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {

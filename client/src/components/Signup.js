@@ -1,18 +1,36 @@
-import { Form, Button,} from 'react-bootstrap';
-import React, { useState } from 'react';
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 function SignupForm() {
     const [formData, setFormData] = useState({ username: "", email: "", password: "" })
+    const [addUser, { error, data }] = useMutation(ADD_USER);
 
     const handleChange = ({ target }) => {
         setFormData({ ...formData, [target.name]: target.value })
+
     }
     const handleSubmit = async (event) => {
         event.preventDefault()
 
         console.log(formData)
+        try {
+            // mutation
+            const { data } = await addUser({
+              variables: { ...formData },
+            });
+            console.log(data.addUser)
+            
+            Auth.login(data.addUser.token); // json webtoken // persistent login
+          } catch (e) {
+            console.error(e);
+          }
     }
+
+
     return (
         <Form onSubmit={handleSubmit} noValidate>
             <Form.Group className="mb-3" controlId="formBasicUsername">
@@ -24,20 +42,19 @@ function SignupForm() {
                 />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password"
-                    name='password'
-                    value={formData.password}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" placeholder="Enter email"
                     name='email'
                     value={formData.email}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password"
+                    name='password'
+                    value={formData.password}
                     onChange={handleChange}
                 />
             </Form.Group>
@@ -51,4 +68,3 @@ function SignupForm() {
 }
 
 export default SignupForm;
-
