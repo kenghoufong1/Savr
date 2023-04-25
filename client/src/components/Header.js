@@ -20,12 +20,12 @@ function Header(props) {
               <>
                 <Nav.Link href="login">Login</Nav.Link>
                 <Nav.Link href="signup">Signup</Nav.Link>
+                <Nav.Link href="me">My Profile</Nav.Link>
               </>
             ) : (
               ""
             )}
             <Nav.Link href="shareddeal">Deals</Nav.Link>
-            <Nav.Link href="profile">Profile</Nav.Link>
             {loggedIn ? (
               <Nav.Link href="/" onClick={()=>{authService.logout()}}>
                 Log out
