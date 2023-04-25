@@ -14,20 +14,19 @@ import Button from 'react-bootstrap/Button';
 const styles = {
     marginStyle:{
       marginTop:"15px"
-  
     },
   };
 
 function Profile() {
-    const { username: userParam } = useParams();
+    const { username } = useParams();
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
+  const { loading, data } = useQuery(username ? QUERY_USER : QUERY_ME, {
+    variables: { username: username },
   });
 
   const user = data?.me || data?.user || {};
   // navigate to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+  if (Auth.loggedIn() && Auth.getProfile().data.username === username) {
     return <Navigate to="/me" />;
   }
 
@@ -52,7 +51,7 @@ function Profile() {
     return (
         <div>
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+          Viewing {username ? `${user.username}'s` : 'your'} profile.
         </h2>
         <Container>
           <Row>
@@ -64,7 +63,7 @@ function Profile() {
                 </Card.Body>
               </Card>
               </Col>
-                {userParam ? (""):(<Col><SavedDeals posts={user.savedPosts}/></Col>)}
+                {username ? (""):(<Col><SavedDeals posts={user.savedPosts}/></Col>)}
             </Row>
         </Container>
         </div>
