@@ -34,6 +34,8 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addPost(location: String!, product: String!, regPrice: Int, salePrice: Int, image: String, description: String, postAuthor: ID): Post
     removePost(postId: ID!): Post
+    savePost(postId: ID!): User
+    unsavePost(postId: ID!): User
   }
 `;
 
