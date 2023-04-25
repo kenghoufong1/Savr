@@ -15,7 +15,6 @@ import Button from 'react-bootstrap/Button';
 const styles = {
     marginStyle:{
       marginTop:"15px"
-  
     },
   };
 
