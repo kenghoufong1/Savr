@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile'
 import SharedDeals from './pages/SharedDeals'
 import Header from './components/Header';
-
+import authService from './utils/auth'
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -17,9 +17,8 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-
       <Router>
-      <Header/>
+      <Header authService={authService}/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/me' element={<Profile />} />
@@ -32,5 +31,4 @@ function App() {
     </ApolloProvider>
   );
 }
-
 export default App;
