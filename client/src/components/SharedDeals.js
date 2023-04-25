@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 
-function deal() {
+function Shareddealcard() {
     return (
         <Card>
             <Card.Header>Deals</Card.Header>
@@ -20,4 +20,4 @@ function deal() {
     );
 }
 
-export default deal;
+export default Shareddealcard;
