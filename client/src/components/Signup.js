@@ -11,21 +11,26 @@ function SignupForm() {
 
     const handleChange = ({ target }) => {
         setFormData({ ...formData, [target.name]: target.value })
+
     }
     const handleSubmit = async (event) => {
         event.preventDefault()
 
         console.log(formData)
         try {
+            // mutation
             const { data } = await addUser({
               variables: { ...formData },
             });
+            console.log(data.addUser)
             
-            Auth.login(data.addUser.token);
+            Auth.login(data.addUser.token); // json webtoken // persistent login
           } catch (e) {
             console.error(e);
           }
     }
+
+
     return (
         <Form onSubmit={handleSubmit} noValidate>
             <Form.Group className="mb-3" controlId="formBasicUsername">
@@ -63,4 +68,3 @@ function SignupForm() {
 }
 
 export default SignupForm;
-

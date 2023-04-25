@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { UNSAVE_POST } from '../utils/mutations';
+
 function SavedDeals(posts) {
     const [unsavePost, { error, data }] = useMutation(UNSAVE_POST);
     const handleUnsave = async (postId) => {
