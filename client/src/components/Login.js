@@ -9,9 +9,14 @@ const LoginForm= (props) => {
     const [formData, setFormData] = useState({ username: "", email: "", password: "" })
     const [login, { error, data }] = useMutation(LOGIN_USER);
 
-    const handleChange = ({ target }) => {
-        setFormData({ ...formData, [target.name]: target.value })
-    }
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+  
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -34,6 +39,13 @@ const LoginForm= (props) => {
     });
     }
     return (
+      <div>
+        {data ? (
+              <p>
+                Success! You may now head{' '}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
@@ -57,7 +69,8 @@ const LoginForm= (props) => {
                 Login
             </Button>
             </div>
-        </Form>
+        </Form>)}
+      </div>
     );
 }
 
