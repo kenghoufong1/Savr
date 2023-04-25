@@ -12,6 +12,15 @@ function Header(props) {
   return (
     <>
       <Navbar bg="lightgreen" expand="lg" id="MyNavbar">
+        <Navbar.Brand href="/">
+          <img
+            src="./Savrcondense.jpg"
+            width="150"
+            height="60"
+            className="d-inline-block align-top"
+            alt="logo"
+          />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
@@ -27,7 +36,7 @@ function Header(props) {
             <Nav.Link href="shareddeal">Deals</Nav.Link>
             <Nav.Link href="profile">Profile</Nav.Link>
             {loggedIn ? (
-              <Nav.Link href="/" onClick={()=>{authService.logout()}}>
+              <Nav.Link href="/" onClick={() => { authService.logout() }}>
                 Log out
               </Nav.Link>
             ) : (
