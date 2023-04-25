@@ -10,36 +10,40 @@ function AddDealForm(props) {
   const [discountedPrice, setDiscountedPrice] = useState('');
   const [duration, setDuration] = useState('');
   const [description, setDescription] = useState('');
-  const postAuthor = props.userId; // Set the logged in user's ID as the postAuthor
+  const postAuthor = "644743dfb71fa3dc405dbed5"; // Set the logged in user's ID as the postAuthor
 
-  const [addPost, { loading, error }] = useMutation(ADD_POST, {
-    onCompleted: () => {
-      setProductName('');
-      setLocation('');
-      setOriginalPrice('');
-      setDiscountedPrice('');
-      setDuration('');
-      setDescription('');
-      alert('Deal added successfully!');
-    },
-    onError: (error) => {
-      console.log(error);
-      alert('Failed to add deal. Please try again later.');
-    }
-  });
+  console.log(postAuthor)
 
-  const handleSubmit = (e) => {
+  const [addPost, { data, loading, error }] = useMutation(ADD_POST
+    // , {
+    // onCompleted: () => {
+    //   setProductName('');
+    //   setLocation('');
+    //   setOriginalPrice('');
+    //   setDiscountedPrice('');
+    //   setDuration('');
+    //   setDescription('');
+    //   alert('Deal added successfully!');
+    // },
+    // onError: (error) => {
+    //   console.log(error);
+    //   alert('Failed to add deal. Please try again later.');
+    // }
+  //}
+  );
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    addPost({
-      variables: {
-        product: productName,
-        location,
-        regPrice: parseFloat(originalPrice),
-        salePrice: parseFloat(discountedPrice),
-        image: '',
-        description,
-        postAuthor
-      }
+    const postResponse = await addPost({
+        variables: {
+            product: "Test",
+            location: "Test",
+            salePrice: 2,
+            // image: '',
+            // dealDuration: 1,
+            description: "Test",
+            postAuthor: postAuthor
+        }
     });
   };
 
