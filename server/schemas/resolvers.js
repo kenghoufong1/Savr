@@ -55,6 +55,7 @@ const resolvers = {
           regPrice: regPrice,
           salePrice:salePrice,
           image: image,
+          dealDuration: dealDuration,
           description: description,
           postAuthor: context.user._id,
         });

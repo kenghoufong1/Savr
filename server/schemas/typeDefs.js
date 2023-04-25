@@ -8,6 +8,7 @@ const typeDefs = gql`
     regPrice: Float
     salePrice: Float!
     image: String
+    dealDuration: Int
     description: String
     postAuthor: ID!
   }
