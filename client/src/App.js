@@ -8,6 +8,7 @@ import Profile from './pages/Profile'
 import SharedDeals from './pages/SharedDeals'
 import Header from './components/Header';
 import authService from './utils/auth'
+import AddDealForm from './pages/AddDeal';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -26,6 +27,7 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
           <Route path='/shareddeal' element={<SharedDeals />} />
+          <Route path='/add-deal' element={<AddDealForm />} />
         </Routes>
       </Router>
     </ApolloProvider>
