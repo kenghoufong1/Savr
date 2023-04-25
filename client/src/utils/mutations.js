@@ -50,9 +50,9 @@ export const SAVE_POST = gql`
   }
 `;
 
-export const UNSAVE_POST = gql`
-  mutation unsavePost($postID: ID!) {
-    unsavePost(postID: $postID) {
+export const REMOVE_SAVED_POST = gql`
+  mutation removeSavedPost($postID: ID!) {
+    removeSavedPost(postID: $postID) {
       token
       user{
         savedPosts

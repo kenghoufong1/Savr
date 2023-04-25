@@ -8,7 +8,6 @@ import Auth from '../utils/auth';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import PersonalInfo from '../components/PersonalInfo';
 import SavedDeals from '../components/SavedDeals';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -57,8 +56,15 @@ function Profile() {
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
         <Container>
-            <Row>
-                <Col><PersonalInfo user={user} /></Col>
+          <Row>
+            <Col> 
+              <Card>
+                <Card.Header>{user.username}</Card.Header>
+                <Card.Body>
+                  <h3>Your Email: {user.email}</h3>
+                </Card.Body>
+              </Card>
+              </Col>
                 {userParam ? (""):(<Col><SavedDeals posts={user.savedPosts}/></Col>)}
             </Row>
         </Container>

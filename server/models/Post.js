@@ -19,6 +19,9 @@ const postSchema = new Schema({
   image: {
     type: String,
   },
+  dealDuration:{
+    type: Number,
+  },
   description: 
     {
       type: String,
