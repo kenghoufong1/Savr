@@ -22,7 +22,7 @@ const SharedDeals = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    
     addDeal({
       variables: {
         // location: locationFilter,
