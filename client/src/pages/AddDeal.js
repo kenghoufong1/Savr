@@ -10,39 +10,36 @@ function AddDealForm(props) {
   const [discountedPrice, setDiscountedPrice] = useState('');
   const [duration, setDuration] = useState('');
   const [description, setDescription] = useState('');
-  const postAuthor = "644743dfb71fa3dc405dbed5"; // Set the logged in user's ID as the postAuthor
-
-  console.log(postAuthor)
 
   const [addPost, { data, loading, error }] = useMutation(ADD_POST
-    // , {
-    // onCompleted: () => {
-    //   setProductName('');
-    //   setLocation('');
-    //   setOriginalPrice('');
-    //   setDiscountedPrice('');
-    //   setDuration('');
-    //   setDescription('');
-    //   alert('Deal added successfully!');
-    // },
-    // onError: (error) => {
-    //   console.log(error);
-    //   alert('Failed to add deal. Please try again later.');
-    // }
-  //}
+    //, {
+//     onCompleted: () => {
+//       setProductName('');
+//       setLocation('');
+//       setOriginalPrice('');
+//       setDiscountedPrice('');
+//       setDuration('');
+//       setDescription('');
+//       alert('Deal added successfully!');
+//     },
+//     onError: (error) => {
+//       console.log(error);
+//       alert('Failed to add deal. Please try again later.');
+//     }
+//   }
   );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const postResponse = await addPost({
+    await addPost({
         variables: {
-            product: "Test",
-            location: "Test",
-            salePrice: 2,
-            // image: '',
-            // dealDuration: 1,
-            description: "Test",
-            postAuthor: postAuthor
+            location: location,
+            product: productName,
+            regPrice: parseFloat(originalPrice),
+            salePrice: parseFloat(discountedPrice),
+            image: '',
+            dealDuration: parseFloat(duration),
+            description: description,
         }
     });
   };
@@ -83,7 +80,7 @@ function AddDealForm(props) {
             <Form.Control as="textarea" rows={3} value={description} onChange={(event) => setDescription(event.target.value)} />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={() => {window.location.href='/shareddeal'}}>
             Submit
           </Button>
         </Form>

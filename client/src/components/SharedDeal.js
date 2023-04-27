@@ -19,6 +19,7 @@ const StyledButton = styled(Button)`
 function SharedDealCard(props) {
   const { product, location, originalPrice, salePrice, description, image, id, dealDuration } = props;
   const [savePost, { error, data }] = useMutation(SAVE_POST);
+  const [removeSavedPost, {err}] = useMutation(REMOVE_SAVED_POST);
   const [isSaved, setIsSaved] = useState(false);
 
   const handleSave = async (event) =>{
@@ -30,6 +31,20 @@ function SharedDealCard(props) {
       });
       console.log(data.savePost)
       setIsSaved(true);
+      
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  const handleRemove = async (event) =>{
+    console.log(event.target.id);
+    try {
+      // mutation
+      const { data } = await removeSavedPost({
+        variables: { postId : event.target.id },
+      });
+      console.log(data.removeSavedPost)
+      setIsSaved(false);
       
     } catch (e) {
       console.error(e);
@@ -49,7 +64,9 @@ function SharedDealCard(props) {
         </Card.Text>
       </Card.Body>
       <CardFooter>
-        <StyledButton id={id} variant="primary" onClick={handleSave}>{isSaved ? "Remove" : "Save Deal"}</StyledButton>
+        {isSaved ? (<StyledButton id={id} variant="primary" onClick={handleRemove}>Remove</StyledButton>) : (<StyledButton id={id} variant="primary" onClick={handleSave}>Save Deal</StyledButton>)}
+      
+        
       </CardFooter>
     </Card>
   );
