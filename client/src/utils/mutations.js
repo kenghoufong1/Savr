@@ -25,14 +25,15 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_POST = gql`
-  mutation addPost($location: String!, $product: String!, $regPrice: Float, $salePrice: Float, $image: String, $description: String, $postAuthor: Id ) {
-    addPost(location: $location, product: $product, regPrice: $regPrice, salePrice: $salePrice, image: $image, description: $description, postAuthor: $postAuthor) {
+  mutation addPost($location: String!, $product: String!, $salePrice: Int!, $postAuthor: ID!) {
+    addPost(location: $location, product: $product, salePrice: $salePrice, postAuthor: $postAuthor) {
       _id
       location
       product
       regPrice
       salePrice
       image
+      dealDuration
       description
       postAuthor
     }
@@ -40,22 +41,22 @@ export const ADD_POST = gql`
 `;
 
 export const SAVE_POST = gql`
-  mutation savePost($postID: ID!) {
-    savePost(postID: $postID) {
-      token
-      user{
-        savedPosts
-      }
+mutation savePost($postId: ID!) {
+  savePost(postId: $postId) {
+    _id
+    savedPosts {
+      _id
     }
   }
+}
 `;
 
 export const REMOVE_SAVED_POST = gql`
   mutation removeSavedPost($postID: ID!) {
     removeSavedPost(postID: $postID) {
-      token
-      user{
-        savedPosts
+      id
+      savedPosts {
+        _id
       }
     }
   }
