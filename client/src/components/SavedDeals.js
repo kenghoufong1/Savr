@@ -7,18 +7,21 @@ import { QUERY_SINGLE_POST } from '../utils/queries';
 
 function SavedDeals(posts) {
   console.log(posts);
-  
-    const [removeSavedPost, { error, data }] = useMutation(REMOVE_SAVED_POST);
-    const handleRemove = async (postId) => {
-        try {
-          const { data } = await removeSavedPost({
-            variables: {postId},
-          });
-        } catch (e) {
-          console.error(e);
-        }
-      };
 
+    const [removeSavedPost, { error, data }] = useMutation(REMOVE_SAVED_POST);
+    const handleRemove = async (event) =>{
+    console.log(event.target.id);
+    try {
+      // mutation
+      const { data } = await removeSavedPost({
+        variables: { postId : event.target.id },
+      });
+      console.log(data.removeSavedPost)
+      
+    } catch (e) {
+      console.error(e);
+    }
+  }
     if (!posts.length) {
         return <Card><h3>No Posts Saved Yet!</h3></Card>
       }

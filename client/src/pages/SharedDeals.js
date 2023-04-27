@@ -49,6 +49,7 @@ const SharedDeals = () => {
                         description={post.description}
                         image={post.image}
                         id={post._id}
+                        postAuthor={post.postAuthor}
                         />
                     );
                     })}

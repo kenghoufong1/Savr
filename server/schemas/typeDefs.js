@@ -15,6 +15,7 @@ const typeDefs = gql`
   type User {
     _id: ID
     username: String
+    profilePicture: String
     email: String
     password: String
     posts: [Post]
