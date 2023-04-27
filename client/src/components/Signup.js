@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
 
 function SignupForm() {
     const [formData, setFormData] = useState({ username: "", email: "", password: "" })
@@ -32,6 +33,13 @@ function SignupForm() {
 
 
     return (
+        <div>
+            {data ? (
+            <p>
+                Success! You may now head{' '}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
         <Form onSubmit={handleSubmit} noValidate>
             <Form.Group className="mb-3" controlId="formBasicUsername">
                 <Form.Label>Username</Form.Label>
@@ -63,7 +71,13 @@ function SignupForm() {
                     Signup
                 </Button>
             </div>
-        </Form>
+        </Form>)}
+        {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+               Error: {error.message}
+              </div>
+            )}
+        </div>
     );
 }
 

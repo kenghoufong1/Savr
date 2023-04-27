@@ -18,6 +18,7 @@ const typeDefs = gql`
     email: String
     password: String
     posts: [Post]
+    savedPosts: [Post]
   }
   type Auth {
     token: ID!
@@ -36,7 +37,7 @@ const typeDefs = gql`
     addPost(location: String!, product: String!, regPrice: Float, salePrice: Float!, image: String, dealDuration: Float, description: String): Post
     removePost(postId: ID!): Post
     savePost(postId: ID!): User
-    unsavePost(postId: ID!): User
+    removeSavedPost(postId: ID!): User
   }
 `;
 

@@ -1,5 +1,5 @@
 #MyNavbar {
-    background-color: rgb(92, 158, 219);
+    background-color: #0E1541;
     width: 100%;
     top: 0;
     z-index: 200;
@@ -15,11 +15,15 @@
     display: flex;
     justify-content: flex-end;
     font-size: 30px;
+    color: white;
     text-decoration: underline;
 }
 
 .ml-auto .nav-link {
     margin-right: 25px;
+}
+.nav-link{
+    color: white;
 }
 
 .card {

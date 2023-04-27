@@ -87,23 +87,20 @@ const resolvers = {
     },
     savePost: async (parent, { postId }, context) => {
       if (context.user) {
-        await User.findOneAndUpdate(
+
+        return await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedPosts: post._id } }
+          { $addToSet: { savedPosts: postId } }
         )
-        return user;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    unsavePost: async (parent, { postId }, context) => {
+    removeSavedPost: async (parent, { postId }, context) => {
       if (context.user) {
-
-      await User.findOneAndUpdate(
+      return await User.findOneAndUpdate(
         { _id: context.user._id },
-        { $pull: { savedPosts: post._id } }
+        { $pull: { savedPosts: postId } }
       );
-
-      return post;
     }
     throw new AuthenticationError('You need to be logged in!');
   }}

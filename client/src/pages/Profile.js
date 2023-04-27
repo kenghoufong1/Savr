@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -13,22 +12,33 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 const styles = {
-    marginStyle:{
+    buttonStyle:{
       marginTop:"15px"
-  
     },
+    cardStyle:{
+      minWidth:"100%"
+    },
+    imgStyle:{
+      maxWidth: "10vh",
+      height: "10vh",
+      margin: "auto"
+    },
+    cardHeader:{
+      display: "flex",
+      flexDirection: "column",
+    }
   };
 
 function Profile() {
-    const { username: userParam } = useParams();
+    const { username } = useParams();
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
+  const { loading, data } = useQuery(username ? QUERY_USER : QUERY_ME, {
+    variables: { username: username },
   });
 
   const user = data?.me || data?.user || {};
   // navigate to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+  if (Auth.loggedIn() && Auth.getProfile().data.username === username) {
     return <Navigate to="/me" />;
   }
 
@@ -39,12 +49,12 @@ function Profile() {
   if (!user?.username) {
     return (
         <Container className='justify-content-md-center'>
-      <Card className=' text-center bg-info p-4 rounded-4'>
+      <Card className=' text-center bg-info p-4 rounded-4' style={styles.cardStyle}>
         <Card.Header>Oops!</Card.Header>
         <Card.Body>
             You need to be logged in to see this.
             <br />
-        <Button href="/" style={styles.marginStyle}>Back to Home</Button>
+        <Button href="/" style={styles.buttonStyle}>Back to Home</Button>
         </Card.Body>
       </Card>
       </Container>
@@ -53,19 +63,19 @@ function Profile() {
     return (
         <div>
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+          Viewing {username ? `${user.username}'s` : 'your'} profile.
         </h2>
         <Container>
           <Row>
             <Col> 
-              <Card>
-                <Card.Header>{user.username}</Card.Header>
+              <Card style={styles.cardStyle} className='text-center'>
+                <Card.Header className='' style={styles.cardHeader}>{user.username}{!user.profilePicture ? <img style={styles.imgStyle} alt='default profile img' src='./assets/defaultPic.png'/> : ''}</Card.Header>
                 <Card.Body>
                   <h3>Your Email: {user.email}</h3>
                 </Card.Body>
               </Card>
               </Col>
-                {userParam ? (""):(<Col><SavedDeals posts={user.savedPosts}/></Col>)}
+                {username ? (""):(<Col><Card style={styles.cardStyle} className='text-center'><SavedDeals posts={user.savedPosts}/></Card></Col>)}
             </Row>
         </Container>
         </div>
