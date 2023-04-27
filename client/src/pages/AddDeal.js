@@ -80,7 +80,7 @@ function AddDealForm(props) {
             <Form.Control as="textarea" rows={3} value={description} onChange={(event) => setDescription(event.target.value)} />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={() => {window.location.href='/shareddeal'}}>
             Submit
           </Button>
         </Form>
