@@ -69,12 +69,12 @@ mutation savePost($postId: ID!) {
 `;
 
 export const REMOVE_SAVED_POST = gql`
-  mutation removeSavedPost($postID: ID!) {
-    removeSavedPost(postID: $postID) {
-      id
-      savedPosts {
-        _id
-      }
+mutation removeSavedPost($postId: ID!) {
+  removeSavedPost(postId: $postId) {
+    _id
+    savedPosts {
+      _id
     }
   }
+}
 `;

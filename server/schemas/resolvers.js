@@ -96,6 +96,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     removeSavedPost: async (parent, { postId }, context) => {
+      console.log("hit resolver");
       if (context.user) {
       return await User.findOneAndUpdate(
         { _id: context.user._id },
