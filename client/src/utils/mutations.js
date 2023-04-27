@@ -1,18 +1,18 @@
 import { gql } from '@apollo/client';
 
-export const SAVE_DEAL_MUTATION = gql`
-  mutation AddDeal($userId: ID!, $product: String!, $location: String!, $originalPrice: Float!, $salePrice: Float!, $description: String!, $image: String!) {
-    addDeal(userId: $userId, product: $product, location: $location, originalPrice: $originalPrice, salePrice: $salePrice, description: $description, image: $image) {
-      id
-      product
-      location
-      originalPrice
-      salePrice
-      description
-      image
-    }
-  }
-`;
+// export const SAVE_DEAL_MUTATION = gql`
+//   mutation AddDeal($userId: ID!, $product: String!, $location: String!, $originalPrice: Float!, $salePrice: Float!, $description: String!, $image: String!) {
+//     addDeal(userId: $userId, product: $product, location: $location, originalPrice: $originalPrice, salePrice: $salePrice, description: $description, image: $image) {
+//       id
+//       product
+//       location
+//       originalPrice
+//       salePrice
+//       description
+//       image
+//     }
+//   }
+// `;
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {

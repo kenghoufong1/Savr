@@ -16,7 +16,6 @@ const StyledButton = styled(Button)`
 `;
 
 
-
 function SharedDealCard(props) {
   const { product, location, originalPrice, salePrice, description, image, id, dealDuration } = props;
   const [savePost, { error, data }] = useMutation(SAVE_POST);

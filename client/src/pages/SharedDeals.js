@@ -11,31 +11,31 @@ const SharedDeals = () => {
 
   const { loading, data } = useQuery(QUERY_POSTS);
 
-  const [addDeal] = useMutation(ADD_POST);
+  // const [addDeal] = useMutation(ADD_POST);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
     
-    addDeal({
-      variables: {
-        // location: locationFilter,
-        product: product,
-        regPrice: parseInt(regPrice),
-        salePrice: parseInt(salePrice),
-        image: image,
-        description: description,
-        postAuthor: postAuthor
-      },
-      refetchQueries: [{ query: QUERY_POSTS }]
-    });
+  //   addDeal({
+  //     variables: {
+  //       // location: locationFilter,
+  //       product: product,
+  //       regPrice: parseInt(regPrice),
+  //       salePrice: parseInt(salePrice),
+  //       image: image,
+  //       description: description,
+  //       postAuthor: postAuthor
+  //     },
+  //     refetchQueries: [{ query: QUERY_POSTS }]
+  //   });
 
-    setProduct('');
-    setRegPrice(0);
-    setSalePrice(0);
-    setImage('');
-    setDescription('');
-    setPostAuthor('');
-  }
+  //   setProduct('');
+  //   setRegPrice(0);
+  //   setSalePrice(0);
+  //   setImage('');
+  //   setDescription('');
+  //   setPostAuthor('');
+  // }
 
   /**
    * 
