@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useQuery, useM } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 
 
@@ -48,6 +48,7 @@ const SharedDeals = () => {
                         salePrice={post.salePrice}
                         description={post.description}
                         image={post.image}
+                        id={post._id}
                         />
                     );
                     })}

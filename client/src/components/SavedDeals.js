@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation} from '@apollo/client';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { REMOVE_SAVED_POST } from '../utils/mutations';
+import { QUERY_SINGLE_POST } from '../utils/queries';
+
 function SavedDeals(posts) {
-    const [unsavePost, { error, data }] = useMutation(REMOVE_SAVED_POST);
-    const handleUnsave = async (postId) => {
+  console.log(posts);
+  
+    const [removeSavedPost, { error, data }] = useMutation(REMOVE_SAVED_POST);
+    const handleRemove = async (postId) => {
         try {
-          const { data } = await unsavePost({
+          const { data } = await removeSavedPost({
             variables: {postId},
           });
         } catch (e) {
           console.error(e);
         }
       };
+
     if (!posts.length) {
-        return <h3>No Posts Saved Yet!</h3>;
+        return <Card><h3>No Posts Saved Yet!</h3></Card>
       }
     return (
         <div>
@@ -29,7 +34,7 @@ function SavedDeals(posts) {
             <h5>Original Price: {post.regPrice}</h5>
             <h3>Sale Price: {post.salePrice}</h3>
             <p>{post.description}</p>
-            <Button variant="danger" onClick={handleUnsave(post._id)}>Remove</Button>
+            <Button variant="danger" onClick={handleRemove}>Remove</Button>
             </Card.Body>
         </Card>
         ))}
