@@ -8,12 +8,12 @@ export const QUERY_USER = gql`
       email
       posts {
         _id
-      location
-      product
-      regPrice
-      salePrice
-      image
-      description
+        location
+        product
+        regPrice
+        salePrice
+        image
+        description
       }
     }
   }
@@ -63,6 +63,9 @@ export const QUERY_ME = gql`
         salePrice
         image
         description
+      }
+      savedPosts{
+        _id
       }
     }
   }
