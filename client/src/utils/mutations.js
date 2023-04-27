@@ -24,9 +24,25 @@ export const ADD_USER = gql`
   }
 `;
 
+// export const ADD_POST = gql`
+//   mutation addPost($location: String!, $product: String!, $salePrice: Int!, $postAuthor: ID) {
+//     addPost(location: $location, product: $product, salePrice: $salePrice, postAuthor: $postAuthor) {
+//       _id
+//       location
+//       product
+//       regPrice
+//       salePrice
+//       image
+//       dealDuration
+//       description
+//       postAuthor
+//     }
+//   }
+// `;
+
 export const ADD_POST = gql`
-  mutation addPost($location: String!, $product: String!, $salePrice: Int!, $ $postAuthor: ID!) {
-    addPost(location: $location, product: $product, salePrice: $salePrice, postAuthor: $postAuthor) {
+  mutation addPost($location: String!, $product: String!, $regPrice: Float, $salePrice: Float!, $image: String, $dealDuration: Float, $description: String) {
+    addPost(location: $location, product: $product, regPrice: $regPrice, salePrice: $salePrice, image: $image, dealDuration: $dealDuration, description: $description) {
       _id
       location
       product
