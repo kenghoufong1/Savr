@@ -1,50 +1,26 @@
 #MyNavbar {
     background-color: #0E1541;
-    position: fixed;
+    width: 100%;
     top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+    z-index: 200;
+    padding: 20px;
 }
 
 .navbar-brand {
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
 }
 
-.navbar-nav {
+#basic-navbar-nav {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: -10px;
-}
-
-.nav-link {
-    font-size: 16px;
+    justify-content: flex-end;
+    font-size: 30px;
     color: white;
-    text-decoration: none;
-    margin-right: 20px;
-    padding: 10px;
+    text-decoration: underline;
 }
 
-.navbar-toggler {
-    border: none;
-    color: white;
-    font-size: 24px;
-}
-
-@media (min-width: 768px) {
-    .navbar-nav {
-        margin-left: auto;
-        margin-right: 0;
-    }
-
-    .nav-link {
-        font-size: 18px;
-        margin-right: 30px;
-        padding: 10px 20px;
-    }
+.ml-auto .nav-link {
+    margin-right: 25px;
 }
 
 .nav-link {
@@ -56,11 +32,9 @@
     margin: 2%;
 }
 
-/* login form container css
-.login-form-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  } */
-  
+.shared-deal-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+}

@@ -40,6 +40,7 @@ const LoginForm= (props) => {
     });
     }
     return (
+      <div>
       <div className='login-form-container'>
         {data ? (
               <p>
@@ -76,6 +77,7 @@ const LoginForm= (props) => {
                 {error.message}
               </div>
             )}
+      </div>
       </div>
     );
 }
