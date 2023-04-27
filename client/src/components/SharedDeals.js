@@ -2,19 +2,28 @@ import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 
 
-function Shareddealcard() {
+function Shareddealcard({ post }) {
+    const {
+        location,
+        product,
+        regPrice,
+        salePrice,
+        image,
+        description,
+        postAuthor,
+      } = post;
     return (
         <Card>
             <Card.Header>Deals</Card.Header>
-            <Card.Img variant="top" src="https://example.com/product-image.jpg" />
+            <Card.Img variant="top" src={image} />
             <Card.Body>
-                <Card.Title>Product Name</Card.Title>
+                <Card.Title>{product}</Card.Title>
                 <Card.Text>
-                        <p>Location:Seattle</p>
-                        <p>Og Price: $10.00</p>
-                        <p>Discounted Price: $8.00</p>
-                        <p>Duration of Deal: 2 days</p>
-                        <p>Description: This is a product description.</p>
+                        <p>Location:{location}</p>
+                        <p>Og Price: ${regPrice.toFixed(2)}</p>
+                        <p>Discounted Price: ${salePrice.toFixed(2)}</p>
+                        <p>Duration of Deal: </p>
+                        <p>Description: {description}.</p>
                 </Card.Text>
             </Card.Body>
         </Card>

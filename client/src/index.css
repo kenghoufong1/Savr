@@ -9,7 +9,7 @@
 .navbar-brand {
     font-size: 40px;
     font-weight: bold;
-  }
+}
 
 #basic-navbar-nav {
     display: flex;
@@ -22,11 +22,19 @@
 .ml-auto .nav-link {
     margin-right: 25px;
 }
-.nav-link{
+
+.nav-link {
     color: white;
 }
 
 .card {
     width: 25%;
     margin: 2%;
-  }
+}
+
+.shared-deal-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+}
