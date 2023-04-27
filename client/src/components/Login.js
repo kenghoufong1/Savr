@@ -40,7 +40,7 @@ const LoginForm= (props) => {
     });
     }
     return (
-      <div>
+      <div className='login-form-container'>
         {data ? (
               <p>
                 Success! You may now head{' '}
