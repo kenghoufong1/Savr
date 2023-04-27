@@ -1,20 +1,13 @@
 import React, { useState } from 'react';
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery, useM } from '@apollo/client';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 
 
-import { QUERY_POSTS } from '../utils/queries';
-import { ADD_POST } from '../utils/mutations';
+import { QUERY_POSTS } from '../utils/queries'
 
 import SharedDealCard from '../components/SharedDeal';
 
 const SharedDeals = () => {
-  const [product, setProduct] = useState('');
-  const [regPrice, setRegPrice] = useState(0);
-  const [salePrice, setSalePrice] = useState(0);
-  const [image, setImage] = useState('');
-  const [description, setDescription] = useState('');
-  const [postAuthor, setPostAuthor] = useState('');
 
   const { loading, data } = useQuery(QUERY_POSTS);
 

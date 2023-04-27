@@ -8,6 +8,7 @@ const typeDefs = gql`
     regPrice: Float
     salePrice: Float!
     image: String
+    dealDuration: Int
     description: String
     postAuthor: ID!
   }
@@ -32,7 +33,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addPost(location: String!, product: String!, regPrice: Int, salePrice: Int, image: String, description: String, postAuthor: ID): Post
+    addPost(location: String!, product: String!, regPrice: Int, salePrice: Int!, image: String, description: String, postAuthor: ID!): Post
     removePost(postId: ID!): Post
     savePost(postId: ID!): User
     unsavePost(postId: ID!): User

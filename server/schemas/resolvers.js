@@ -47,7 +47,8 @@ const resolvers = {
 
       return { token, user };
     },
-    addPost: async (parent, { location, product, regPrice, salePrice, image, description }, context) => {
+    addPost: async (parent, { location, product, regPrice, salePrice, image, dealDuration, description }, context) => {
+      console.log(context.user)
       if (context.user) {
         const post = await Post.create({
           location: location,
@@ -55,6 +56,7 @@ const resolvers = {
           regPrice: regPrice,
           salePrice:salePrice,
           image: image,
+          dealDuration: dealDuration,
           description: description,
           postAuthor: context.user._id,
         });

@@ -4,14 +4,20 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
 
 const LoginForm= (props) => {
     const [formData, setFormData] = useState({ username: "", email: "", password: "" })
     const [login, { error, data }] = useMutation(LOGIN_USER);
 
-    const handleChange = ({ target }) => {
-        setFormData({ ...formData, [target.name]: target.value })
-    }
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+  
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -34,6 +40,13 @@ const LoginForm= (props) => {
     });
     }
     return (
+      <div>
+        {data ? (
+              <p>
+                Success! You may now head{' '}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
@@ -57,7 +70,13 @@ const LoginForm= (props) => {
                 Login
             </Button>
             </div>
-        </Form>
+        </Form>)}
+        {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+      </div>
     );
 }
 
