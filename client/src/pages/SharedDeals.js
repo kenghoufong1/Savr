@@ -56,7 +56,7 @@ const SharedDeals = () => {
                 </Row>
                 <Row className="mt-4">
                 <Col className="text-center">
-                    <Button variant="primary">Add New Deal</Button>
+                    <Button onClick={() => {window.location.href='/add-deal'}} variant="primary">Add New Deal</Button>
                 </Col>
                 </Row>
             </Container>
