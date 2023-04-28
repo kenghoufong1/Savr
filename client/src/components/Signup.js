@@ -5,10 +5,11 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
-
+import UploadWidget from "./CloudinaryUploadWidget.js";
 function SignupForm() {
     const [formData, setFormData] = useState({ username: "", email: "", password: "" })
     const [addUser, { error, data }] = useMutation(ADD_USER);
+    const [imageData, setImageData] = useState('')
 
     const handleChange = ({ target }) => {
         setFormData({ ...formData, [target.name]: target.value })
@@ -16,12 +17,12 @@ function SignupForm() {
     }
     const handleSubmit = async (event) => {
         event.preventDefault()
-
+        console.log(imageData);
         console.log(formData)
         try {
             // mutation
             const { data } = await addUser({
-              variables: { ...formData },
+              variables: { username: formData.username, email: formData.email, password: formData.password, profilePicture: imageData},
             });
             console.log(data.addUser)
             
@@ -30,8 +31,9 @@ function SignupForm() {
             console.error(e);
           }
     }
-
-
+    const getImageData = (imageURL) => {
+        setImageData(imageURL);
+    }
     return (
         <div>
             {data ? (
@@ -66,6 +68,8 @@ function SignupForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            <UploadWidget setImageData={setImageData}/>
+            {imageData? (imageData) : ('No Profile Picture Uploaded!')}
             <div className='d-grid gap-2'>
                 <Button variant="primary" type="submit">
                     Signup

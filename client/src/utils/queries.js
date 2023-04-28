@@ -5,6 +5,7 @@ export const QUERY_USER = gql`
     user(username: $username) {
       _id
       username
+      profilePicture
       email
       posts {
         _id
@@ -54,6 +55,7 @@ export const QUERY_ME = gql`
     me {
       _id
       username
+      profilePicture
       email
       posts {
         _id

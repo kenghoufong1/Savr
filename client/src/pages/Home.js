@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import anime from 'animejs';
 import '../Home.css';
-
 function Home() {
   const welcomeMsgRef = useRef(null);
   const dealInfoRef = useRef(null);

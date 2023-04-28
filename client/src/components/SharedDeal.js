@@ -15,9 +15,15 @@ const StyledButton = styled(Button)`
   margin-bottom: 0;
 `;
 
+const styles = {
+  listStyle:{
+    listStyle:"none",
+  }
+};
+
 
 function SharedDealCard(props) {
-  const { product, location, originalPrice, salePrice, description, image, id, dealDuration } = props;
+  const { product, location, originalPrice, salePrice, description, image, id, dealDuration, postAuthor } = props;
   const [savePost, { error, data }] = useMutation(SAVE_POST);
   const [removeSavedPost, {err}] = useMutation(REMOVE_SAVED_POST);
   const [isSaved, setIsSaved] = useState(false);
@@ -50,22 +56,29 @@ function SharedDealCard(props) {
       console.error(e);
     }
   }
+  const handleDelete = async (event) => {
+    console.log(event.target.postAuthor);
+
+  }
   return (
-    <Card style={{ width: "95%" }} key={id}>
+    <Card key={id} style={{ width: "95%" }} key={id}>
       <Card.Img variant="top" src={image} />
       <Card.Body>
-        <Card.Header>{product}</Card.Header>
+        <Card.Header>{-1 * (Math.round((salePrice / originalPrice) * 100) - 100)}% off of {product} </Card.Header>
         <Card.Text>
-          <p>Location: {location}</p>
-          <p>Original Price: {originalPrice}</p>
-          <p>Discounted Price: {salePrice}</p>
-          <p>Duration of Deal: {dealDuration}</p>
-          <p>Description: {description}</p>
+          <ul style={styles.listStyle}>
+            <li>Posted By: {postAuthor}</li>
+            <li>Location: {location}</li>
+            <li>Original Price: {originalPrice}</li>
+            <li>Discounted Price: {salePrice}</li>
+            <li>Duration of Deal: {dealDuration}</li>
+            <li>Description: {description}</li>
+          </ul>
         </Card.Text>
       </Card.Body>
       <CardFooter>
         {isSaved ? (<StyledButton id={id} variant="primary" onClick={handleRemove}>Remove</StyledButton>) : (<StyledButton id={id} variant="primary" onClick={handleSave}>Save Deal</StyledButton>)}
-      
+
         
       </CardFooter>
     </Card>
