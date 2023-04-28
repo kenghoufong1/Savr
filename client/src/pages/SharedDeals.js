@@ -8,7 +8,7 @@ import SharedDealCard from '../components/SharedDeal';
 const SharedDeals = () => {
   const { loading, data } = useQuery(QUERY_POSTS);
 
-  const cities = ["Seattle", "Bellevue", "Redmond", "Kirkland", "Renton", "Bothell"];
+  const cities = ["View All", "Seattle", "Bellevue", "Redmond", "Kirkland", "Renton", "Bothell"];
 
   const [selectedCity, setSelectedCity] = useState("Seattle");
 
@@ -47,7 +47,8 @@ const SharedDeals = () => {
                   overflowY: 'scroll',
                 }}
               >
-                {/* {data.posts.map((post) => {
+                {selectedCity === "View All" ? (
+                data.posts.map((post) => {
                   return (
                     <SharedDealCard
                       key={post._id}
@@ -60,24 +61,25 @@ const SharedDeals = () => {
                       id={post._id}
                     />
                   );
-                })} */}
-                {data.posts.filter((post) => post.location === selectedCity)
-                .map((post) => {
-                    return (
-                    <SharedDealCard
-                        key={post._id}
-                        product={post.product}
-                        location={post.location}
-                        originalPrice={post.regPrice}
-                        salePrice={post.salePrice}
-                        description={post.description}
-                        image={post.image}
-                        id={post._id}
-                        postAuthor={post.postAuthor}
+                })
+                ) : (
+                data.posts.filter((post) => post.location === selectedCity)
+                    .map((post) => {
+                        return (
+                        <SharedDealCard
+                            key={post._id}
+                            product={post.product}
+                            location={post.location}
+                            originalPrice={post.regPrice}
+                            salePrice={post.salePrice}
+                            description={post.description}
+                            image={post.image}
+                            id={post._id}
                         />
+                        );
+                })
+                )}
 
-                    );
-                })}
               </div>
             </Col>
           </Row>
