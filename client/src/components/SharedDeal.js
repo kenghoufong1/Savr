@@ -61,7 +61,7 @@ function SharedDealCard(props) {
 
   }
   return (
-    <Card key={id} style={{ width: "95%" }} key={id}>
+    <Card key={id} style={{ width: "60%" }} key={id}>
       <Card.Img variant="top" src={image} />
       <Card.Body>
         <Card.Header>{-1 * (Math.round((salePrice / originalPrice) * 100) - 100)}% off of {product} </Card.Header>

@@ -38,14 +38,14 @@ const SharedDeals = () => {
                     {city}
                     </Dropdown.Item>
                 ))}
-                <p>Filterbylocation</p>
                 </Dropdown.Menu>
+                <h3 id='filter'>Filter By Location</h3>
             </Dropdown>
-            <Col md="auto" className="bg-info p-4 rounded-4">
+            <Col md="auto" className="bg-info p-4 rounded-4" id='loaddeals'>
               <div
                 style={{
-                  maxHeight: '500px',
-                  width: '800px',
+                  maxHeight: '700px',
+                  width: '100%',
                   overflowY: 'scroll',
                 }}
               >
@@ -66,7 +66,7 @@ const SharedDeals = () => {
               </div>
             </Col>
           </Row>
-          <Row className="mt-4">
+          <Row className="mt-5">
             <Col className="text-center">
               <Button onClick={() => {window.location.href='/add-deal'}} variant="primary">
                 Add New Deal
