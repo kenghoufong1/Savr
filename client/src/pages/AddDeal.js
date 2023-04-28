@@ -7,6 +7,7 @@ import UploadWidget from "../components/CloudinaryUploadWidget";
 function AddDealForm(props) {
   const [productName, setProductName] = useState('');
   const [location, setLocation] = useState('');
+  const [store, setStore] = useState('');
   const [originalPrice, setOriginalPrice] = useState('');
   const [discountedPrice, setDiscountedPrice] = useState('');
   const [duration, setDuration] = useState('');
@@ -20,6 +21,7 @@ function AddDealForm(props) {
     onCompleted: () => {
       setProductName('');
       setLocation('');
+      setStore('');
       setOriginalPrice('');
       setDiscountedPrice('');
       setDuration('');
@@ -40,6 +42,7 @@ function AddDealForm(props) {
     await addPost({
         variables: {
             location: location,
+            store: store,
             product: productName,
             regPrice: parseFloat(originalPrice),
             salePrice: parseFloat(discountedPrice),
@@ -76,6 +79,11 @@ function AddDealForm(props) {
             </Form.Select>
           </Form.Group>
 
+          <Form.Group controlId="store">
+            <Form.Label>Store</Form.Label>
+            <Form.Control type="text" value={store} onChange={(event) => setStore(event.target.value)} />
+          </Form.Group>
+
           <Form.Group controlId="originalPrice">
             <Form.Label>Original Price</Form.Label>
             <Form.Control type="text" value={originalPrice} onChange={(event) => setOriginalPrice(event.target.value)} />
@@ -97,7 +105,7 @@ function AddDealForm(props) {
           </Form.Group>
 
           <UploadWidget setImageData={setImageData}/>
-            {imageData? (imageData) : ('No Profile Picture Uploaded!')}
+            {imageData? (imageData) : ('No Picture Uploaded!')}
           <Button variant="primary" type="submit">
 
             Submit

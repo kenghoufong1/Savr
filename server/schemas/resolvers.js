@@ -47,7 +47,7 @@ const resolvers = {
 
       return { token, user };
     },
-    addPost: async (parent, { location, product, regPrice, salePrice, image, dealDuration, description }, context) => {
+    addPost: async (parent, { location, store, product, regPrice, salePrice, image, dealDuration, description }, context) => {
       if (context.user) {
         const post = await Post.create({
           location: location,
@@ -97,7 +97,6 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     removeSavedPost: async (parent, { postId }, context) => {
-      console.log("hit resolver");
       if (context.user) {
       return await User.findOneAndUpdate(
         { _id: context.user._id },

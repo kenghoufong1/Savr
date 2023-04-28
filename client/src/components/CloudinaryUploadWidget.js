@@ -8,7 +8,8 @@ const UploadWidget = ({setImageData}) => {
     widgetRef.current = cloudinaryRef.current.createUploadWidget({
       cloudName: 'dwcfr7fta',
       uploadPreset: 'zkfqkrlo',
-      sources: ['local','url','camera']
+      sources: ['local','url','camera'],
+      multiple: false
     }, function(error, result) {
       if(result.info.url){
       console.log(result.info.url);
