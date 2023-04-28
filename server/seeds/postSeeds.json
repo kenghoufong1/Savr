@@ -1,6 +1,6 @@
 [
     {
-      "location":"Safeway",
+      "location":"Seattle",
       "product": "Diet Pepsi",
       "regPrice": "2",
       "salePrice": "1.50",
@@ -9,7 +9,7 @@
       "postAuthor": "6441f5cc0a0a6b07e64fd9c9"
     },
     {
-        "location":"Rite Aid",
+        "location":"Bothell",
         "product": "Lay's Potato Chips",
         "regPrice": "3.50",
         "salePrice": "2",
