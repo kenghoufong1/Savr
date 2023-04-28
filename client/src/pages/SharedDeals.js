@@ -11,7 +11,7 @@ const SharedDeals = () => {
 
   const cities = ["View All", "Seattle", "Bellevue", "Redmond", "Kirkland", "Renton", "Bothell"];
 
-  const [selectedCity, setSelectedCity] = useState("Seattle");
+  const [selectedCity, setSelectedCity] = useState("View All");
 
   const handleCitySelect = (city) => {
     setSelectedCity(city);

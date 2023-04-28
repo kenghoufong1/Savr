@@ -41,7 +41,7 @@ export const ADD_USER = gql`
 export const ADD_POST = gql`
 
   mutation addPost($location: String!, $store: String!, $product: String!, $regPrice: Float, $salePrice: Float!, $image: String, $dealDuration: Float, $description: String) {
-    addPost(location: $location, store: $store product: $product, regPrice: $regPrice, salePrice: $salePrice, image: $image, dealDuration: $dealDuration, description: $description) {
+    addPost(location: $location, store: $store, product: $product, regPrice: $regPrice, salePrice: $salePrice, image: $image, dealDuration: $dealDuration, description: $description) {
       _id
       location
       store
