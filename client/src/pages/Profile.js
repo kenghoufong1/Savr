@@ -69,7 +69,7 @@ function Profile() {
           <Row>
             <Col> 
               <Card style={styles.cardStyle} className='text-center'>
-                <Card.Header className='' style={styles.cardHeader}>{user.username}{!user.profilePicture ? <img style={styles.imgStyle} alt='default profile img' src='./assets/defaultPic.png'/> : ''}</Card.Header>
+                <Card.Header className='' style={styles.cardHeader}>{user.username}{!user.profilePicture ? <img style={styles.imgStyle} alt='default profile img' src='./assets/defaultPic.png'/> : <img style={styles.imgStyle} alt='' src={user.profilePicture}/>}</Card.Header>
                 <Card.Body>
                   <h3>Your Email: {user.email}</h3>
                 </Card.Body>

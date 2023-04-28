@@ -31,6 +31,7 @@ function SavedDeals(posts) {
             {posts &&
         posts.map((post) => (
         <Card>
+           <Card.Img variant="top" src={post.image}/>
             <Card.Title>{post.product} at {post.location}</Card.Title>
             <Card.Subtitle>Posted by {post.postAuthor}</Card.Subtitle>
             <Card.Body>

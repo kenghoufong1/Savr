@@ -18,7 +18,7 @@ const StyledButton = styled(Button)`
 const styles = {
   listStyle:{
     listStyle:"none",
-  },
+  }
 };
 
 function SharedDealCard(props) {
@@ -57,15 +57,16 @@ function SharedDealCard(props) {
   }
   const handleDelete = async (event) => {
     console.log(event.target.postAuthor);
-    
+
   }
   return (
     <Card key={id}>
-      <Card.Img variant="top" src={image} />
+      <Card.Img variant="top" src={image}/>
       <Card.Body>
-        <Card.Header>{-1 * (Math.round((salePrice / originalPrice) * 100) - 100)}% off of {product}</Card.Header>
+        <Card.Header>{-1 * (Math.round((salePrice / originalPrice) * 100) - 100)}% off of {product} </Card.Header>
         <Card.Text>
           <ul style={styles.listStyle}>
+            <li>Posted By: {postAuthor}</li>
             <li>Location: {location}</li>
             <li>Original Price: {originalPrice}</li>
             <li>Discounted Price: {salePrice}</li>
