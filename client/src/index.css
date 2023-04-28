@@ -55,4 +55,28 @@
     justify-content: center;
     flex-wrap: wrap;
     margin: 20px;
+    flex-direction: column;
+}
+
+#filter{
+    font-weight: bold;
+}
+
+#loaddeals{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+}
+
+#cardsdeals{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.text-center{
+    font-weight: bold;
 }
