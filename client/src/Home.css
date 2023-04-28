@@ -1,17 +1,51 @@
 body {
-    background-image: url('./freshg.webp');
+    background-image: url('./SAVR.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
+    margin-top: 50px;
 }
 
 .home-container{
-    display: flex;
-    justify-content: space-around;
-    color: black;
-    margin-top: 20%;
+    color: white;
 }
 
 #welcomemsg{
+    text-align: center;
     font-size: 100px;
+}
+
+.hero {
+background-color:rgba(112,128,144, 0.5);
+height: 80vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.deal-info {
+/* min-height: 50vh; */
+display: flex;
+justify-content: space-between;
+padding: 50px;
+background-color: grey;
+}
+
+.deal-info div {
+    width: 49%;
+}
+
+.deal-info p {
+    width: 50%;
+    
+}
+
+.deal-info img {
+    width: 100%;
+}
+
+.info-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
