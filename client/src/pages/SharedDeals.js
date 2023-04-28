@@ -29,7 +29,7 @@ const SharedDeals = () => {
                 {selectedCity}
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
+                <Dropdown.Menu className='citylist'>
                 {cities.map((city) => (
                     <Dropdown.Item
                     onClick={() => handleCitySelect(city)}
@@ -47,7 +47,7 @@ const SharedDeals = () => {
                   overflowY: 'scroll',
                 }}
               >
-                {/* {data.posts.map((post) => {
+                {data.posts.map((post) => {
                   return (
                     <SharedDealCard
                       key={post._id}
@@ -60,8 +60,8 @@ const SharedDeals = () => {
                       id={post._id}
                     />
                   );
-                })} */}
-                {data.posts.filter((post) => post.location === selectedCity)
+                })}
+                {/* {data.posts.filter((post) => post.location === selectedCity)
                 .map((post) => {
                     return (
                     <SharedDealCard
@@ -77,7 +77,7 @@ const SharedDeals = () => {
                         />
 
                     );
-                })}
+                })} */}
               </div>
             </Col>
           </Row>

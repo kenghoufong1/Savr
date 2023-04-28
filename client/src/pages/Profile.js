@@ -75,26 +75,28 @@ function Profile() {
       </Container>
     )
   }
-    return (
-        <div>
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {username ? `${user.username}'s` : 'your'} profile.
-        </h2>
-        <Container>
-          <Row>
-            <Col> 
-              <Card style={styles.cardStyle} className='text-center'>
-                <Card.Header className='' style={styles.cardHeader}>{user.username}{!user.profilePicture ? <img style={styles.imgStyle} alt='default profile img' src='./assets/defaultPic.png'/> : <img style={styles.imgStyle} alt='' src={user.profilePicture}/>}</Card.Header>
-                <Card.Body>
-                  <h3>Your Email: {user.email}</h3>
-                </Card.Body>
-              </Card>
-              </Col>
-                {username ? (""):(<Col><Card style={styles.cardStyle} className='text-center'><SavedDeals posts={user.savedPosts}/></Card></Col>)}
-            </Row>
-        </Container>
-        </div>
-    )
+  return (
+    <div className='profile' ref={profileRef} style={{ opacity: 0 }}>
+      <h2 className="col-12 col-md-12 bg-dark text-light p-3 mb-5">
+        Viewing {username ? `${user.username}'s` : 'your'} profile.
+      </h2>
+      <Container>
+        <Row>
+          <Col>
+            <Card style={styles.cardStyle} className='text-center'>
+              <Card.Header className='' style={styles.cardHeader}>{user.username}{!user.profilePicture ? <img style={styles.imgStyle} alt='default profile img' src='./assets/defaultPic.png' /> : ''}</Card.Header>
+              <Card.Body>
+                <h3>Your Email: {user.email}</h3>
+              </Card.Body>
+            </Card>
+          </Col>
+          <div>
+            {username ? ("") : (<Col><Card style={styles.cardStyle} className='text-center'><SavedDeals posts={user.savedPosts} /></Card></Col>)}
+          </div>
+        </Row>
+      </Container>
+    </div>
+  )
 }
 
 export default Profile;
