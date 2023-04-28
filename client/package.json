@@ -23,7 +23,8 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.1",
-    "styled-components": "^5.3.10"
+    "styled-components": "^5.3.10",
+    "animejs": "^3.2.1"
   },
   "devDependencies": {
     "typescript": "4.1.3"

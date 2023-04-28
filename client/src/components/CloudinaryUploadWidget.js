@@ -6,8 +6,8 @@ const UploadWidget = ({setImageData}) => {
   useEffect(() => {
     cloudinaryRef.current = window.cloudinary;
     widgetRef.current = cloudinaryRef.current.createUploadWidget({
-      cloudName: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
-      uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
+      cloudName: 'dwcfr7fta',
+      uploadPreset: 'zkfqkrlo',
       sources: ['local','url','camera']
     }, function(error, result) {
       if(result.info.url){
