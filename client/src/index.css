@@ -32,9 +32,10 @@
     margin: 2%;
 }
 
-.shared-deal-list{
+.shared-deal-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: center;
 }
+
