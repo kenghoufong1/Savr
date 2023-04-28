@@ -1,5 +1,5 @@
 #MyNavbar {
-    background-color: rgba(112,128,144, 0.5);
+    background-color: rgba(112, 128, 144, 0.5);
     width: 100%;
     top: 0;
     z-index: 200;
@@ -39,12 +39,20 @@
     align-content: center;
 }
 
-.profile{
+.profile {
     display: flex;
     flex-wrap: wrap;
-    
+
 }
 
-/* .text-center{
+#dealspage {
+    display: flex;
+}
 
-} */
+#selectcity{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+}

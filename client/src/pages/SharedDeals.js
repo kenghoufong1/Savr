@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { Button, Container, Row, Col, Dropdown } from 'react-bootstrap';
+import '../index.css';
 
 import { QUERY_POSTS } from '../utils/queries';
 import SharedDealCard from '../components/SharedDeal';
@@ -23,13 +24,13 @@ const SharedDeals = () => {
       ) : (
         <Container fluid="md">
           <h1 className="text-center">Deals</h1>
-          <Row className="justify-content-center">
-            <Dropdown className="mx-auto">
+          <Row className="justify-content-center" id='dealspage'>
+            <Dropdown className="mx-auto" id='selectcity' >
                 <Dropdown.Toggle variant="secondary">
                 {selectedCity}
                 </Dropdown.Toggle>
-
-                <Dropdown.Menu>
+                
+                <Dropdown.Menu className='citylist'>
                 {cities.map((city) => (
                     <Dropdown.Item
                     onClick={() => handleCitySelect(city)}
@@ -37,6 +38,7 @@ const SharedDeals = () => {
                     {city}
                     </Dropdown.Item>
                 ))}
+                <p>Filterbylocation</p>
                 </Dropdown.Menu>
             </Dropdown>
             <Col md="auto" className="bg-info p-4 rounded-4">
@@ -49,6 +51,7 @@ const SharedDeals = () => {
               >
                 {selectedCity === "View All" ? (
                 data.posts.map((post) => {
+
                   return (
                     <SharedDealCard
                       key={post._id}
@@ -61,6 +64,8 @@ const SharedDeals = () => {
                       id={post._id}
                     />
                   );
+
+
                 })
                 ) : (
                 data.posts.filter((post) => post.location === selectedCity)
@@ -79,7 +84,6 @@ const SharedDeals = () => {
                         );
                 })
                 )}
-
               </div>
             </Col>
           </Row>
