@@ -38,7 +38,6 @@ const SharedDeals = () => {
                     {city}
                     </Dropdown.Item>
                 ))}
-                <p>Filterbylocation</p>
                 </Dropdown.Menu>
             </Dropdown>
             <Col md="auto" className="bg-info p-4 rounded-4">
