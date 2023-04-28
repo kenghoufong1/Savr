@@ -26,11 +26,21 @@ function Home() {
     
     return (
       <div className="home-container">
-        <h1 id='welcomemsg'>Welcome to Savr</h1>
+            <div className='hero'>
+            <h1 id='welcomemsg'>Welcome to Savr</h1>
         <a href="/shareddeal">
           <button id='mainbutton' ref={startShoppingBtnRef}>Start Shopping</button>
         </a>
-      </div>
+          </div>
+            <div className='deal-info'>
+                <div>
+                    <img src='assets/savr2.jpg' alt='' />
+                </div>
+                <div className='info-details'>   
+                    <p>Start saving with our website. View and post deals around Seattle.</p>
+                </div>
+            </div>
+        </div>
     );
   }
 

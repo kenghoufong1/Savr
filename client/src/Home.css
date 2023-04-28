@@ -1,43 +1,51 @@
 body {
-    background-image: url('./freshg.webp');
+    background-image: url('./SAVR.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
+    margin-top: 50px;
 }
 
 .home-container{
-    display: flex;
-    justify-content: center;
-    color: black;
-    margin-top: 15%;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: space-around;
-    align-items: center;
+    color: white;
 }
 
 #welcomemsg{
+    text-align: center;
     font-size: 100px;
-    margin-bottom: 50px;
 }
 
-#mainbutton {
-    background-color: #e74c3c;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        cursor: pointer;
-        transition: transform 0.2s ease-in-out;
-    }
+.hero {
+background-color:rgba(112,128,144, 0.5);
+height: 80vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.deal-info {
+/* min-height: 50vh; */
+display: flex;
+justify-content: space-between;
+padding: 50px;
+background-color: grey;
+}
+
+.deal-info div {
+    width: 49%;
+}
+
+.deal-info p {
+    width: 50%;
     
-    #mainbutton:hover {
-        transform: scale(1.05);
-    }
-    
-    #mainbutton:focus {
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.4);
-    }
+}
+
+.deal-info img {
+    width: 100%;
+}
+
+.info-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
