@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form, Row, Container } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../utils/mutations';
+import UploadWidget from "../components/CloudinaryUploadWidget";
 
 function AddDealForm(props) {
   const [productName, setProductName] = useState('');
@@ -10,27 +11,30 @@ function AddDealForm(props) {
   const [discountedPrice, setDiscountedPrice] = useState('');
   const [duration, setDuration] = useState('');
   const [description, setDescription] = useState('');
+  const [imageData, setImageData] = useState('')
 
   const cities = ["Seattle", "Bellevue", "Redmond", "Kirkland", "Renton", "Bothell"];
 
   const [addPost, { data, loading, error }] = useMutation(ADD_POST
-    //, {
-//     onCompleted: () => {
-//       setProductName('');
-//       setLocation('');
-//       setOriginalPrice('');
-//       setDiscountedPrice('');
-//       setDuration('');
-//       setDescription('');
-//       alert('Deal added successfully!');
-//     },
-//     onError: (error) => {
-//       console.log(error);
-//       alert('Failed to add deal. Please try again later.');
-//     }
-//   }
+    , {
+    onCompleted: () => {
+      setProductName('');
+      setLocation('');
+      setOriginalPrice('');
+      setDiscountedPrice('');
+      setDuration('');
+      setDescription('');
+      alert('Deal added successfully!');
+    },
+    onError: (error) => {
+      console.log(error);
+      alert('Failed to add deal. Please try again later.');
+    }
+  }
   );
-
+  const getImageData = (imageURL) => {
+    setImageData(imageURL);
+}
   const handleSubmit = async (e) => {
     e.preventDefault();
     await addPost({
@@ -39,7 +43,7 @@ function AddDealForm(props) {
             product: productName,
             regPrice: parseFloat(originalPrice),
             salePrice: parseFloat(discountedPrice),
-            image: '',
+            image: imageData,
             dealDuration: parseFloat(duration),
             description: description,
         }
@@ -92,7 +96,10 @@ function AddDealForm(props) {
             <Form.Control as="textarea" rows={3} value={description} onChange={(event) => setDescription(event.target.value)} />
           </Form.Group>
 
-          <Button variant="primary" type="submit" onClick={() => {window.location.href='/shareddeal'}}>
+          <UploadWidget setImageData={setImageData}/>
+            {imageData? (imageData) : ('No Profile Picture Uploaded!')}
+          <Button variant="primary" type="submit">
+
             Submit
           </Button>
         </Form>
