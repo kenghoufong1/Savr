@@ -51,7 +51,7 @@ function SharedDealCard(props) {
     }
   }
   return (
-    <Card key={id}>
+    <Card style={{ width: "95%" }} key={id}>
       <Card.Img variant="top" src={image} />
       <Card.Body>
         <Card.Header>{product}</Card.Header>

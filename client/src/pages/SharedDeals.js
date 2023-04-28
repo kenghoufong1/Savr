@@ -1,72 +1,71 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Button, Container, Row, Col, Dropdown } from 'react-bootstrap';
 
-
-import { QUERY_POSTS } from '../utils/queries'
-
+import { QUERY_POSTS } from '../utils/queries';
 import SharedDealCard from '../components/SharedDeal';
 
 const SharedDeals = () => {
-
   const { loading, data } = useQuery(QUERY_POSTS);
 
-  // const [addDeal] = useMutation(ADD_POST);
+  const cities = ["Seattle", "Bellevue", "Redmond", "Kirkland", "Renton", "Bothell"];
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-    
-  //   addDeal({
-  //     variables: {
-  //       // location: locationFilter,
-  //       product: product,
-  //       regPrice: parseInt(regPrice),
-  //       salePrice: parseInt(salePrice),
-  //       image: image,
-  //       description: description,
-  //       postAuthor: postAuthor
-  //     },
-  //     refetchQueries: [{ query: QUERY_POSTS }]
-  //   });
+  const [selectedCity, setSelectedCity] = useState("Seattle");
 
-  //   setProduct('');
-  //   setRegPrice(0);
-  //   setSalePrice(0);
-  //   setImage('');
-  //   setDescription('');
-  //   setPostAuthor('');
-  // }
-
-  /**
-   * 
-   * 
-    posts array from data
-
-    0: {
-        "__typename": "Post",
-        "_id": "64447af4a957c7465abc95d5",
-        "location": "Safeway",
-        "product": "Diet Pepsi",
-        "regPrice": 2,
-        "salePrice": 1.5,
-        "image": "",
-        "description": "They also have cherry!",
-        "postAuthor": "6441f5cc0a0a6b07e64fd9c9"
-    }
-   * 
-   */
+  const handleCitySelect = (city) => {
+    setSelectedCity(city);
+  }
 
   return (
     <div>
-        {/* Curley brackets must evaluate into a string, component, or an array of either */}
-        {loading?(<div>Loading. Please wait.</div>):(
-            <Container fluid="md">
-                <h1 className="text-center">Deals</h1>
-                <Row className="justify-content-center">
-                <Col md="auto" className="bg-info p-4 rounded-4 d-flex flex-wrap justify-content-center">
-                    {data.posts.map((post) => {
+      {loading ? (
+        <div>Loading. Please wait.</div>
+      ) : (
+        <Container fluid="md">
+          <h1 className="text-center">Deals</h1>
+          <Row className="justify-content-center">
+            <Dropdown className="mx-auto">
+                <Dropdown.Toggle variant="secondary">
+                {selectedCity}
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                {cities.map((city) => (
+                    <Dropdown.Item
+                    onClick={() => handleCitySelect(city)}
+                    >
+                    {city}
+                    </Dropdown.Item>
+                ))}
+                </Dropdown.Menu>
+            </Dropdown>
+            <Col md="auto" className="bg-info p-4 rounded-4">
+              <div
+                style={{
+                  maxHeight: '500px',
+                  width: '800px',
+                  overflowY: 'scroll',
+                }}
+              >
+                {/* {data.posts.map((post) => {
+                  return (
+                    <SharedDealCard
+                      key={post._id}
+                      product={post.product}
+                      location={post.location}
+                      originalPrice={post.regPrice}
+                      salePrice={post.salePrice}
+                      description={post.description}
+                      image={post.image}
+                      id={post._id}
+                    />
+                  );
+                })} */}
+                {data.posts.filter((post) => post.location === selectedCity)
+                .map((post) => {
                     return (
-                        <SharedDealCard
+                    <SharedDealCard
+                        key={post._id}
                         product={post.product}
                         location={post.location}
                         originalPrice={post.regPrice}
@@ -74,20 +73,23 @@ const SharedDeals = () => {
                         description={post.description}
                         image={post.image}
                         id={post._id}
-                        />
+                    />
                     );
-                    })}
-                </Col>
-                </Row>
-                <Row className="mt-4">
-                <Col className="text-center">
-                    <Button onClick={() => {window.location.href='/add-deal'}} variant="primary">Add New Deal</Button>
-                </Col>
-                </Row>
-            </Container>
-        )}
+                })}
+              </div>
+            </Col>
+          </Row>
+          <Row className="mt-4">
+            <Col className="text-center">
+              <Button onClick={() => {window.location.href='/add-deal'}} variant="primary">
+                Add New Deal
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default SharedDeals;
