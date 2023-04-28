@@ -14,7 +14,7 @@ function Header(props) {
       <Navbar bg="lightgreen" expand="lg" id="MyNavbar">
         <Navbar.Brand href="/">
           <img
-            src="./Savrcondense.jpg"
+            src="./SAVRlogo.png"
             width="150"
             height="60"
             className="d-inline-block align-top"
