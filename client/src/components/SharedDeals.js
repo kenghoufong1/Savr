@@ -33,6 +33,7 @@ function Shareddealcard({ post }) {
     
     const {
         location,
+        store,
         product,
         regPrice,
         salePrice,
@@ -49,6 +50,7 @@ function Shareddealcard({ post }) {
                 <Card.Title className='cardtitle'>{product}</Card.Title>
                 <Card.Text className='cardtext'>
                     <p>Location:{location}</p>
+                    <p>Store: {store}</p>
                     <p>Og Price: ${regPrice.toFixed(2)}</p>
                     <p>Discounted Price: ${salePrice.toFixed(2)}</p>
                     <p>Duration of Deal: </p>

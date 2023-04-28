@@ -5,6 +5,10 @@ const postSchema = new Schema({
     type: String,
     required: true,
   },
+  store: {
+    type: String,
+    required: true,
+  },
   product: {
     type: String,
     required: true,

@@ -23,7 +23,7 @@ const styles = {
 
 
 function SharedDealCard(props) {
-  const { product, location, originalPrice, salePrice, description, image, id, dealDuration, postAuthor } = props;
+  const { product, location, store, originalPrice, salePrice, description, image, id, dealDuration, postAuthor } = props;
   const [savePost, { error, data }] = useMutation(SAVE_POST);
   const [removeSavedPost, {err}] = useMutation(REMOVE_SAVED_POST);
   const [isSaved, setIsSaved] = useState(false);
@@ -69,6 +69,7 @@ function SharedDealCard(props) {
           <ul style={styles.listStyle}>
             <li>Posted By: {postAuthor}</li>
             <li>Location: {location}</li>
+            <li>Store: {store}</li>
             <li>Original Price: {originalPrice}</li>
             <li>Discounted Price: {salePrice}</li>
             <li>Duration of Deal: {dealDuration}</li>

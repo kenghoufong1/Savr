@@ -1,6 +1,7 @@
 [
     {
-      "location":"Safeway",
+      "location":"Seattle",
+      "store": "Safeway",
       "product": "Diet Pepsi",
       "regPrice": "2",
       "salePrice": "1.50",
@@ -9,7 +10,8 @@
       "postAuthor": "6441f5cc0a0a6b07e64fd9c9"
     },
     {
-        "location":"Rite Aid",
+        "location":"Bothell",
+        "store": "Rite Aid",
         "product": "Lay's Potato Chips",
         "regPrice": "3.50",
         "salePrice": "2",
@@ -18,7 +20,8 @@
         "postAuthor": "6441f5cc0a0a6b07e64fd9c7"
     },
     {
-        "location":"Walmart",
+        "location":"Seattle",
+        "store": "Walmart",
         "product": "Barilla Pasta",
         "regPrice": "2",
         "salePrice": "1.25",
@@ -27,7 +30,8 @@
         "postAuthor": "6441f5cc0a0a6b07e64fd9c6"
     },
     {
-        "location":"Target",
+        "location":"Bellevue",
+        "store": "Target",
         "product": "Ben and Jerry's Ice Cream",
         "regPrice": "4",
         "salePrice": "3.50",
@@ -36,7 +40,8 @@
         "postAuthor": "6441f5cc0a0a6b07e64fd9c8"
     },
     {
-        "location":"QFC",
+        "location":"Kirkland",
+        "store": "QFC",
         "product": "Hienz Ketchup",
         "regPrice": "2",
         "salePrice": "1.50",
@@ -45,7 +50,8 @@
         "postAuthor": "6441f5cc0a0a6b07e64fd9ca"
     },
     {
-        "location":"Safeway",
+        "location":"Renton",
+        "store": "Safeway",
         "product": "Campbells Soup",
         "regPrice": "3",
         "salePrice": "2",
@@ -54,7 +60,8 @@
         "postAuthor": "6441f5cc0a0a6b07e64fd9cc"
     },
     {
-        "location":"Target",
+        "location":"Renton",
+        "store": "Target",
         "product": "Purina Dog Chow",
         "regPrice": "10",
         "salePrice": "9",
@@ -63,7 +70,8 @@
         "postAuthor": "6441f5cc0a0a6b07e64fd9cb"
     },
     {
-        "location":"Walmart",
+        "location":"Bellevue",
+        "store": "Walmart",
         "product": "Nature Valley Granola Bars",
         "regPrice": "6",
         "salePrice": "4.50",
@@ -72,7 +80,8 @@
         "postAuthor": "6441f5cc0a0a6b07e64fd9cd"
     },
     {
-        "location":"QFC",
+        "location":"Kirkland",
+        "store": "QFC",
         "product": "Special K Cereal",
         "regPrice": "4",
         "salePrice": "3.50",
@@ -81,7 +90,8 @@
         "postAuthor": "6441f5cc0a0a6b07e64fd9cf"
     },
     {
-        "location":"Safeway",
+        "location":"Redmond",
+        "store": "Safeway",
         "product": "Silk Almond Milk",
         "regPrice": "3",
         "salePrice": "2.50",

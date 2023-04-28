@@ -10,6 +10,7 @@ export const QUERY_USER = gql`
       posts {
         _id
         location
+        store
         product
         regPrice
         salePrice
@@ -25,6 +26,7 @@ export const QUERY_POSTS = gql`
     posts {
       _id
       location
+      store
       product
       regPrice
       salePrice
@@ -40,6 +42,7 @@ export const QUERY_SINGLE_POST = gql`
     post(postId: $postId) {
       _id
       location
+      store
       product
       regPrice
       salePrice
@@ -60,6 +63,7 @@ export const QUERY_ME = gql`
       posts {
         _id
         location
+        store
         product
         regPrice
         salePrice

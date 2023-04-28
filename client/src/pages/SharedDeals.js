@@ -57,6 +57,7 @@ const SharedDeals = () => {
                       key={post._id}
                       product={post.product}
                       location={post.location}
+                      store={post.store}
                       originalPrice={post.regPrice}
                       salePrice={post.salePrice}
                       description={post.description}
@@ -75,6 +76,7 @@ const SharedDeals = () => {
                             key={post._id}
                             product={post.product}
                             location={post.location}
+                            store={post.store}
                             originalPrice={post.regPrice}
                             salePrice={post.salePrice}
                             description={post.description}
