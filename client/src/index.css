@@ -26,6 +26,7 @@
 .nav-link {
 
     color: white;
+    text-decoration: none;
 }
 
 .card {
@@ -69,6 +70,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-around;
+    background-color: white;
 }
 
 #cardsdeals{
@@ -80,5 +82,17 @@
 
 .text-center{
     font-weight: bold;
+}
+
+#selectcity{
+    display: flex;
+    border-radius: 15px;
+    background-color: white;
+    width: 20%;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
 }
 
