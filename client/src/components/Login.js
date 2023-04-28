@@ -41,6 +41,7 @@ const LoginForm= (props) => {
     }
     return (
       <div>
+      <div className='login-form-container'>
         {data ? (
               <p>
                 Success! You may now head{' '}
@@ -76,6 +77,7 @@ const LoginForm= (props) => {
                 {error.message}
               </div>
             )}
+      </div>
       </div>
     );
 }

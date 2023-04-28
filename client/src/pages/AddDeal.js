@@ -86,8 +86,8 @@ function AddDealForm(props) {
 
           <UploadWidget setImageData={setImageData}/>
             {imageData? (imageData) : ('No Profile Picture Uploaded!')}
-
           <Button variant="primary" type="submit">
+
             Submit
           </Button>
         </Form>

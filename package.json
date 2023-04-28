@@ -16,6 +16,11 @@
     "concurrently": "^5.3.0"
   },
   "dependencies": {
+<<<<<<< HEAD
     "dotenv": "^8.2.0"
+=======
+    "animejs": "^3.2.1"
+
+>>>>>>> 1af1bc8c11a858bf63951bcd8d20c919ad3222f3
   }
 }
