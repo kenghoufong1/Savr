@@ -5,7 +5,7 @@
       "product": "Diet Pepsi",
       "regPrice": "2",
       "salePrice": "1.50",
-      "image":"",
+      "image":"./assets/seedPics/dietPepsi.jpeg",
       "description":"They also have cherry!",
       "postAuthor": "6441f5cc0a0a6b07e64fd9c9"
     },
@@ -15,7 +15,7 @@
         "product": "Lay's Potato Chips",
         "regPrice": "3.50",
         "salePrice": "2",
-        "image":"",
+        "image":"./assets/seedPics/laysChips.jpeg",
         "description":"Party size Tostitos were also on sale, but they were out",
         "postAuthor": "6441f5cc0a0a6b07e64fd9c7"
     },
@@ -25,7 +25,7 @@
         "product": "Barilla Pasta",
         "regPrice": "2",
         "salePrice": "1.25",
-        "image":"",
+        "image":"./assets/seedPics/pasta.jpeg",
         "description":"Making baked ziti tonight!",
         "postAuthor": "6441f5cc0a0a6b07e64fd9c6"
     },
@@ -35,7 +35,7 @@
         "product": "Ben and Jerry's Ice Cream",
         "regPrice": "4",
         "salePrice": "3.50",
-        "image":"",
+        "image":"./assets/seedPics/iceCream.jpeg",
         "description":"Great for the kids!",
         "postAuthor": "6441f5cc0a0a6b07e64fd9c8"
     },
@@ -45,7 +45,7 @@
         "product": "Hienz Ketchup",
         "regPrice": "2",
         "salePrice": "1.50",
-        "image":"",
+        "image":"./assets/seedPics/ketchup.jpeg",
         "description":"Stopped by for game day, amazing deal.",
         "postAuthor": "6441f5cc0a0a6b07e64fd9ca"
     },
@@ -55,7 +55,7 @@
         "product": "Campbells Soup",
         "regPrice": "3",
         "salePrice": "2",
-        "image":"",
+        "image":"./assets/seedPics/soup.jpeg",
         "description":"Great for those cold nights!",
         "postAuthor": "6441f5cc0a0a6b07e64fd9cc"
     },
@@ -65,7 +65,7 @@
         "product": "Purina Dog Chow",
         "regPrice": "10",
         "salePrice": "9",
-        "image":"",
+        "image":"./assets/seedPics/dogFood.jpeg",
         "description":"Rover loves this kibble",
         "postAuthor": "6441f5cc0a0a6b07e64fd9cb"
     },
@@ -75,7 +75,7 @@
         "product": "Nature Valley Granola Bars",
         "regPrice": "6",
         "salePrice": "4.50",
-        "image":"",
+        "image":"./assets/seedPics/granola.jpeg",
         "description":"Picked some up for camping",
         "postAuthor": "6441f5cc0a0a6b07e64fd9cd"
     },
@@ -85,7 +85,7 @@
         "product": "Special K Cereal",
         "regPrice": "4",
         "salePrice": "3.50",
-        "image":"",
+        "image":"./assets/seedPics/specialK.jpeg",
         "description":"Me and my kids love this cereal",
         "postAuthor": "6441f5cc0a0a6b07e64fd9cf"
     },
@@ -95,7 +95,7 @@
         "product": "Silk Almond Milk",
         "regPrice": "3",
         "salePrice": "2.50",
-        "image":"",
+        "image":"./assets/seedPics/milk.jpeg",
         "description":"Gotta have my milk!",
         "postAuthor": "6441f5cc0a0a6b07e64fd9ce"
     }
