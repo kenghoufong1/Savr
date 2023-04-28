@@ -4,6 +4,7 @@ const typeDefs = gql`
   type Post {
     _id: ID!
     location: String!
+    store: String!
     product: String!
     regPrice: Float
     salePrice: Float!
@@ -35,7 +36,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!, profilePicture: String): Auth
     login(email: String!, password: String!): Auth
-    addPost(location: String!, product: String!, regPrice: Float, salePrice: Float!, image: String, dealDuration: Float, description: String): Post
+    addPost(location: String!, store: String!, product: String!, regPrice: Float, salePrice: Float!, image: String, dealDuration: Float, description: String): Post
     removePost(postId: ID!): Post
     savePost(postId: ID!): User
     removeSavedPost(postId: ID!): User

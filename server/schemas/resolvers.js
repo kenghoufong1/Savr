@@ -51,6 +51,7 @@ const resolvers = {
       if (context.user) {
         const post = await Post.create({
           location: location,
+          store: store,
           product: product,
           regPrice: regPrice,
           salePrice: salePrice,
