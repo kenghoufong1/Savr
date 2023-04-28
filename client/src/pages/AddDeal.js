@@ -11,6 +11,8 @@ function AddDealForm(props) {
   const [duration, setDuration] = useState('');
   const [description, setDescription] = useState('');
 
+  const cities = ["Seattle", "Bellevue", "Redmond", "Kirkland", "Renton", "Bothell"];
+
   const [addPost, { data, loading, error }] = useMutation(ADD_POST
     //, {
 //     onCompleted: () => {
@@ -55,9 +57,19 @@ function AddDealForm(props) {
             <Form.Control type="text" value={productName} onChange={(event) => setProductName(event.target.value)} />
           </Form.Group>
 
-          <Form.Group controlId="location">
+          {/* <Form.Group controlId="location">
             <Form.Label>Location</Form.Label>
             <Form.Control type="text" value={location} onChange={(event) => setLocation(event.target.value)} />
+          </Form.Group> */}
+
+          <Form.Group controlId="location">
+            <Form.Label>Location</Form.Label>
+            <Form.Select value={location} onChange={(event) => setLocation(event.target.value)}>
+              <option>Select a city</option>
+              {cities.map(city => (
+                <option key={city} value={city}>{city}</option>
+              ))}
+            </Form.Select>
           </Form.Group>
 
           <Form.Group controlId="originalPrice">
