@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { Button, Container, Row, Col, Dropdown } from 'react-bootstrap';
+import '../index.css';
 
 import { QUERY_POSTS } from '../utils/queries';
 import SharedDealCard from '../components/SharedDeal';
@@ -23,12 +24,12 @@ const SharedDeals = () => {
       ) : (
         <Container fluid="md">
           <h1 className="text-center">Deals</h1>
-          <Row className="justify-content-center">
-            <Dropdown className="mx-auto">
+          <Row className="justify-content-center" id='dealspage'>
+            <Dropdown className="mx-auto" id='selectcity' >
                 <Dropdown.Toggle variant="secondary">
                 {selectedCity}
                 </Dropdown.Toggle>
-
+                
                 <Dropdown.Menu className='citylist'>
                 {cities.map((city) => (
                     <Dropdown.Item
@@ -37,6 +38,7 @@ const SharedDeals = () => {
                     {city}
                     </Dropdown.Item>
                 ))}
+                <p>Filterbylocation</p>
                 </Dropdown.Menu>
             </Dropdown>
             <Col md="auto" className="bg-info p-4 rounded-4">
@@ -61,23 +63,6 @@ const SharedDeals = () => {
                     />
                   );
                 })}
-                {/* {data.posts.filter((post) => post.location === selectedCity)
-                .map((post) => {
-                    return (
-                    <SharedDealCard
-                        key={post._id}
-                        product={post.product}
-                        location={post.location}
-                        originalPrice={post.regPrice}
-                        salePrice={post.salePrice}
-                        description={post.description}
-                        image={post.image}
-                        id={post._id}
-                        postAuthor={post.postAuthor}
-                        />
-
-                    );
-                })} */}
               </div>
             </Col>
           </Row>
