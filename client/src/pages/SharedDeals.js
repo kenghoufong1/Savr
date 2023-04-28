@@ -42,7 +42,7 @@ const SharedDeals = () => {
                 <h3 id='filter'>Filter By Location</h3>
             </Dropdown>
             <Col md="auto" className="bg-info p-4 rounded-4" id='loaddeals'>
-              <div
+              <div id ='cardsdeals'
                 style={{
                   maxHeight: '700px',
                   width: '100%',
