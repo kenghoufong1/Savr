@@ -39,3 +39,12 @@
     align-content: center;
 }
 
+.profile{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+/* .text-center{
+
+} */

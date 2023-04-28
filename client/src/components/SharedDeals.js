@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useMutation, useQuery } from '@apollo/client';
 import { SAVE_POST, REMOVE_SAVED_POST } from '../utils/mutations';
 import React, { useState, useEffect } from 'react';
+import '../profilecard.css';
 
 const StyledButton = styled(Button)`
   margin-bottom: 0;
@@ -41,19 +42,19 @@ function Shareddealcard({ post }) {
         _id
     } = post;
     return (
-        <Card>
-            <Card.Header>Deals</Card.Header>
-            <Card.Img variant="top" src={image} />
+        <Card className='card'>
+            <Card.Header className='cardheader'>Deals</Card.Header>
+            <Card.Img className='cardimg' variant="top" src={image} />
             <Card.Body>
-                <Card.Title>{product}</Card.Title>
-                <Card.Text>
+                <Card.Title className='cardtitle'>{product}</Card.Title>
+                <Card.Text className='cardtext'>
                     <p>Location:{location}</p>
                     <p>Og Price: ${regPrice.toFixed(2)}</p>
                     <p>Discounted Price: ${salePrice.toFixed(2)}</p>
                     <p>Duration of Deal: </p>
                     <p>Description: {description}.</p>
                 </Card.Text>
-                <StyledButton id={_id} variant="primary" onClick={handleRemove}>Remove</StyledButton>
+                <StyledButton className='classbutton'id={_id} variant="primary" onClick={handleRemove}>Remove</StyledButton>
             </Card.Body>
         </Card>
     );
