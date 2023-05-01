@@ -10,7 +10,7 @@ function Signup() {
         <Container fluid className='frontpageboxs'>
             <h1 className='text-center'>Signup</h1>
             <Row className='justify-content-md-center'>
-            <Col md="auto" className='bg-info p-4 rounded-4'>
+            <Col md="auto" className='bg-info p-4 rounded-4 loginform'>
                     <SignupForm />
                 </Col>
             </Row>

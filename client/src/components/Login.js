@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
+import anime from 'animejs';
 
 const LoginForm = (props) => {
   const [formData, setFormData] = useState({ username: "", email: "", password: "" })
@@ -31,9 +32,16 @@ const LoginForm = (props) => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    console.log(formData)
+    anime({
+      targets: '.login-form-container',
+      translateY: [-5, 5, 0],
+      duration: 500,
+      easing: 'easeInOutSine'
+    });
+
+    console.log(formData);
 
     try {
       const { data } = await login({
@@ -59,7 +67,7 @@ const LoginForm = (props) => {
             <Link to="/">back to the homepage.</Link>
           </p>
         ) : (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className='loginform'>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" placeholder="Enter email"
