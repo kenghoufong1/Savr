@@ -25,7 +25,9 @@ const SharedDeals = () => {
         <Container fluid="md">
           <h1 className="text-center">Deals</h1>
           <Row className="justify-content-center" id='dealspage'>
+            
             <Dropdown className="mx-auto" id='selectcity' >
+            <h3 id='filter'>Filter By Location</h3>
                 <Dropdown.Toggle variant="secondary">
                 {selectedCity}
                 </Dropdown.Toggle>
@@ -39,9 +41,9 @@ const SharedDeals = () => {
                     </Dropdown.Item>
                 ))}
                 </Dropdown.Menu>
-                <h3 id='filter'>Filter By Location</h3>
+                
             </Dropdown>
-            <Col md="auto" className="bg-info p-4 rounded-4" id='loaddeals'>
+            <Col md="auto" className="p-4 rounded-4" id='loaddeals'>
               <div id ='cardsdeals'
                 style={{
                   maxHeight: '700px',
