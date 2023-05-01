@@ -6,23 +6,34 @@ import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
 
-const LoginForm= (props) => {
-    const [formData, setFormData] = useState({ username: "", email: "", password: "" })
-    const [login, { error, data }] = useMutation(LOGIN_USER);
-
-    const handleChange = (event) => {
-      const { name, value } = event.target;
+const LoginForm = (props) => {
+  const [formData, setFormData] = useState({ username: "", email: "", password: "" })
+  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [rememberMe, setRememberMe] = useState(false);
   
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
-    };
+  const handleRememberMeChange = (event) => {
+    const isChecked = event.target.checked;
+    setRememberMe(isChecked);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault()
+    if (isChecked) {
+      localStorage.setItem('rememberMe', 'true');
+    } else {
+      localStorage.removeItem('rememberMe');
+    }
+  };
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-        console.log(formData)
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    console.log(formData)
 
     try {
       const { data } = await login({
@@ -38,48 +49,52 @@ const LoginForm= (props) => {
       email: '',
       password: '',
     });
-    }
-    return (
-      <div>
+  }
+  return (
+    <div>
       <div className='login-form-container'>
         {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-        <Form onSubmit={handleSubmit}>
+          <p>
+            Success! You may now head{' '}
+            <Link to="/">back to the homepage.</Link>
+          </p>
+        ) : (
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" 
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" placeholder="Enter email"
                 name='email'
                 value={formData.email}
                 onChange={handleChange}
-                />
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" 
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password"
                 name='password'
                 value={formData.password}
                 onChange={handleChange}
-                />
+              />
             </Form.Group>
-            
-           <div className='d-grid gap-2'>
-            <Button variant="primary" type="submit">
+
+            <div className='d-grid gap-2'>
+              <Button variant="primary" type="submit">
                 Login
-            </Button>
+              </Button>
+
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Remember me" checked={rememberMe} onChange={handleRememberMeChange} />
+              </Form.Group>
             </div>
-        </Form>)}
+          </Form>)}
         {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
+          <div className="my-3 p-3 bg-danger text-white">
+            {error.message}
+          </div>
+        )}
       </div>
-      </div>
-    );
+    </div>
+  );
 }
 
 export default LoginForm;
