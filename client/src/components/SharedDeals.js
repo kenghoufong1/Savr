@@ -9,6 +9,12 @@ const StyledButton = styled(Button)`
   margin-bottom: 0;
 `;
 
+const styles = {
+    imgStyle: {
+        maxHeight: "30%"
+    }
+}
+
 function Shareddealcard({ post }) {
     const [removeSavedPost, { err }] = useMutation(REMOVE_SAVED_POST);
     const [showCard, setShowCard] = useState(true);
@@ -45,7 +51,7 @@ function Shareddealcard({ post }) {
     return (
         <Card className='card'>
             <Card.Header className='cardheader'>Deals</Card.Header>
-            <Card.Img className='cardimg' variant="top" src={image} />
+            <Card.Img className='cardimg' style={styles.imgStyle} variant="top" src={image} />
             <Card.Body>
                 <Card.Title className='cardtitle'>{product}</Card.Title>
                 <Card.Text className='cardtext'>
