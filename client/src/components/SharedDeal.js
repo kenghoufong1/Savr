@@ -16,9 +16,12 @@ const StyledButton = styled(Button)`
 `;
 
 const styles = {
-  listStyle:{
-    listStyle:"none",
-  }
+  imgStyle: {
+    maxHeight: "30vh",
+    objectFit: "contain",
+    margin: "auto",
+    overflow: "hidden"
+  },
 };
 
 
@@ -61,13 +64,12 @@ function SharedDealCard(props) {
 
   }
   return (
-    <Card key={id} style={{ width: "45%" }} key={id}>
-      <Card.Img variant="top" src={image} />
+    <Card key={id} style={{ width: "45%", maxHeight: "auto" }}>
+      <Card.Img variant="top" src={image} style={styles.imgStyle}/>
       <Card.Body>
         <Card.Header>{-1 * (Math.round((salePrice / originalPrice) * 100) - 100)}% off of {product} </Card.Header>
         <Card.Text>
           <ul style={styles.listStyle}>
-            <li>Posted By: {postAuthor}</li>
             <li>Location: {location}</li>
             <li>Store: {store}</li>
             <li>Original Price: {originalPrice}</li>
