@@ -24,6 +24,7 @@
 }
 
 .nav-link {
+
     color: white;
     text-decoration: none;
 }
@@ -95,7 +96,4 @@
     align-items: center;
 }
 
-.frontpageboxs{
-    margin-top: 10%;
-}
 
