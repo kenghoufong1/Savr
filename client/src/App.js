@@ -40,7 +40,7 @@ function App() {
       <Router>
       <Header authService={authService}/>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/*' element={<Home />} />
           <Route path='/me' element={<Profile />} />
           <Route path='/profile/:username' element={<Profile/>}/>
           <Route path='/signup' element={<Signup />} />
