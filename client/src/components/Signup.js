@@ -68,9 +68,13 @@ function SignupForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            
             <UploadWidget setImageData={setImageData}/>
+            
             {imageData? (imageData) : ('No Profile Picture Uploaded!')}
+            
             <div className='d-grid gap-2'>
+            <br></br>
                 <Button variant="primary" type="submit">
                     Signup
                 </Button>
